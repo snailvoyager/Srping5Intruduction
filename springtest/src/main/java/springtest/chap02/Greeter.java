@@ -1,4 +1,4 @@
-package springtest.chpa02;
+package springtest.chap02;
 
 public class Greeter {
 	private String format;
