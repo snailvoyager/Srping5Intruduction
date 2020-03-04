@@ -47,7 +47,7 @@ public class Main {
 			regSvc.regist(req);
 			System.out.println("register");
 		} catch(DuplicateMemberException e) {
-			System.out.println("duplicate");
+			System.out.println(e.getLocalizedMessage());
 		}
 	}
 	
@@ -56,7 +56,7 @@ public class Main {
 			printHelp();
 			return;
 		}
-		ChangePasswordService changePwdSvc = new ChangePasswordService();
+		ChangePasswordService changePwdSvc = assembler.getPwdSvc();
 		try {
 			changePwdSvc.changePassword(arg[1], arg[2], arg[3]);
 			System.out.println("change password");
