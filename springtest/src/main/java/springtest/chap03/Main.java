@@ -4,8 +4,15 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 public class Main {
+	private static ApplicationContext ctx = null;
+	
 	public static void main(String[] args) throws IOException {
+		ctx = new AnnotationConfigApplicationContext(AppCtx.class);
+		
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		while(true) {
 			System.out.println("Input: ");
@@ -25,14 +32,16 @@ public class Main {
 		}
 	}
 	
-	private static Assembler assembler = new Assembler();
+	//private static Assembler assembler = new Assembler();
 	
 	private static void processNewCommand(String[] arg) {
 		if(arg.length != 5) {
 			printHelp();
 			return;
 		}
-		MemberRegisterService regSvc = assembler.getRegSvc();
+		//MemberRegisterService regSvc = assembler.getRegSvc();
+		MemberRegisterService regSvc = ctx.getBean("memberRegSvc", MemberRegisterService.class);
+		
 		RegisterRequest req = new RegisterRequest();
 		req.setEmail(arg[1]);
 		req.setName(arg[2]);
@@ -56,7 +65,9 @@ public class Main {
 			printHelp();
 			return;
 		}
-		ChangePasswordService changePwdSvc = assembler.getPwdSvc();
+		//ChangePasswordService changePwdSvc = assembler.getPwdSvc();
+		ChangePasswordService changePwdSvc = ctx.getBean("changePwdSvc", ChangePasswordService.class);
+		
 		try {
 			changePwdSvc.changePassword(arg[1], arg[2], arg[3]);
 			System.out.println("change password");
