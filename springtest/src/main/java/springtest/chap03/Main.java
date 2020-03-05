@@ -27,6 +27,9 @@ public class Main {
 			} else if(command.startsWith("change ")) {
 				processChangeCommand(command.split(" "));
 				continue;
+			} else if(command.equals("list")) {
+				processListCommand();
+				continue;
 			}
 			printHelp();
 		}
@@ -80,5 +83,10 @@ public class Main {
 	
 	private static void printHelp() {
 		System.out.println("printHelp");
+	}
+	
+	private static void processListCommand() {
+		MemberListPrinter listPrinter = ctx.getBean("listPrinter", MemberListPrinter.class);
+		listPrinter.printAll();
 	}
 }
