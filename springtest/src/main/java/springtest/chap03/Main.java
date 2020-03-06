@@ -11,7 +11,8 @@ public class Main {
 	private static ApplicationContext ctx = null;
 	
 	public static void main(String[] args) throws IOException {
-		ctx = new AnnotationConfigApplicationContext(AppCtx.class);
+		//ctx = new AnnotationConfigApplicationContext(AppCtx.class);
+		ctx = new AnnotationConfigApplicationContext(AppConf1.class, AppConf2.class);		//가변인자
 		
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		while(true) {
