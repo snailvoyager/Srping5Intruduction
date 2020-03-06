@@ -6,8 +6,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AppCtx {
 	@Bean
-	public MemberDao memberDao() {
-		return new MemberDao();
+	public MemberDao memberDao() {	//@Bean 메서드는 한개의 객체만 생성. 싱글톤
+		return new MemberDao();		//항상 같은 객체를 리턴
 	}
 	
 	@Bean
