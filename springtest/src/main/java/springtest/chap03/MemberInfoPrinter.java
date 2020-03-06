@@ -1,7 +1,11 @@
 package springtest.chap03;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class MemberInfoPrinter {
-	private MemberDao memDao;
+	@Autowired
+	private MemberDao memDao;		//Bean 객체 자동 주입
+	@Autowired
 	private MemberPrinter printer;
 	
 	public void printMemberInfo(String email) {

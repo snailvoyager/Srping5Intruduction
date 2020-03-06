@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 public class AppConf2 {
 
 	@Autowired
-	private MemberDao memberDao;
+	private MemberDao memberDao;	//AppConf1.java 에서 설정한 빈 객체 자동 주입
 	
 	@Autowired
 	private MemberPrinter memberPrinter;
@@ -33,8 +33,8 @@ public class AppConf2 {
 	@Bean
 	public MemberInfoPrinter infoPrinter() {
 		MemberInfoPrinter infoPrinter = new MemberInfoPrinter();
-		infoPrinter.setMemberDao(memberDao);
-		infoPrinter.setPrinter(memberPrinter);
+		//infoPrinter.setMemberDao(memberDao);		//@Autowired 로 자동주입해서 세터 메서드 사용X
+		//infoPrinter.setPrinter(memberPrinter);
 		return infoPrinter;
 	}
 }
