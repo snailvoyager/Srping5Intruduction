@@ -12,7 +12,8 @@ public class Main {
 	
 	public static void main(String[] args) throws IOException {
 		//ctx = new AnnotationConfigApplicationContext(AppCtx.class);
-		ctx = new AnnotationConfigApplicationContext(AppConf1.class, AppConf2.class);		//가변인자
+		//ctx = new AnnotationConfigApplicationContext(AppConf1.class, AppConf2.class);		//가변인자
+		ctx = new AnnotationConfigApplicationContext(AppConf1.class);		//@Import로 여러 설정 클래스 지정
 		AppConf1 appconf1 = ctx.getBean(AppConf1.class);	//@Configuration 설정클래스도 Bean 객체
 		System.out.println(appconf1!=null);
 		
