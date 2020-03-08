@@ -1,6 +1,7 @@
 package springtest.chap04;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 public class MemberInfoPrinter {
 	private MemberDao memDao;
@@ -20,6 +21,7 @@ public class MemberInfoPrinter {
 		this.memDao = memberDao;
 	}
 	@Autowired
+	@Qualifier("printer")
 	public void setPrinter(MemberPrinter printer) {
 		this.printer = printer;
 	}

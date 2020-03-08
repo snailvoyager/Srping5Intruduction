@@ -1,5 +1,6 @@
 package springtest.chap04;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -23,7 +24,13 @@ public class AppCtx {
 	}
 	
 	@Bean
-	public MemberPrinter memberPrinter() {
+	@Qualifier("printer")		//자동 주입 대상 Bean객체를 한정
+	public MemberPrinter memberPrinter1() {
+		return new MemberPrinter();
+	}
+	
+	@Bean
+	public MemberPrinter memberPrinter2() {		//의존 주입하려는 Bean 객체가 두개일 때
 		return new MemberPrinter();
 	}
 	
