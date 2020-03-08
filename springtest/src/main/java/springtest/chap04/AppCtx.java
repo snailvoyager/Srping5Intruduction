@@ -30,8 +30,8 @@ public class AppCtx {
 	}
 	
 	@Bean
-	public MemberPrinter memberPrinter2() {		//의존 주입하려는 Bean 객체가 두개일 때
-		return new MemberPrinter();
+	public MemberSummaryPrinter memberPrinter2() {		//의존 주입하려는 Bean 객체가 두개일 때
+		return new MemberSummaryPrinter();				//상속받는 동일한 Bean 객체
 	}
 	
 	@Bean

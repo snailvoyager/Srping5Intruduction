@@ -21,8 +21,8 @@ public class MemberInfoPrinter {
 		this.memDao = memberDao;
 	}
 	@Autowired
-	@Qualifier("printer")
-	public void setPrinter(MemberPrinter printer) {
+	//@Qualifier("memberPrinter2")
+	public void setPrinter(MemberSummaryPrinter printer) {	//@Qualifier 사용하지 않더라도 파라미터를 사용할 Bean객체로 수정
 		this.printer = printer;
 	}
 }
