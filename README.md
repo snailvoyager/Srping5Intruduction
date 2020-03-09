@@ -1,12 +1,12 @@
-# Srping5 Intruduction
+# Spring5 Intruduction
 ## Reference
 > 초보 웹 개발자를 위한 스프링5 프로그래밍 입문 By 최범균
 
 ## Project Spec
-* Spring 5
+* Spring 5.0.2
 * JDK 1.8
 * UTF-8
-* Maven
+* Maven 3.7.0
 * Tomcat 8
 
 ## Contents
