@@ -20,9 +20,15 @@ public class MemberInfoPrinter {
 	public void setMemberDao(MemberDao memberDao) {
 		this.memDao = memberDao;
 	}
+//	@Autowired
+//	//@Qualifier("memberPrinter2")
+//	public void setPrinter(MemberSummaryPrinter printer) {	//@Qualifier 사용하지 않더라도 파라미터를 사용할 Bean객체로 수정
+//		this.printer = printer;
+//	}
+	
 	@Autowired
-	//@Qualifier("memberPrinter2")
-	public void setPrinter(MemberSummaryPrinter printer) {	//@Qualifier 사용하지 않더라도 파라미터를 사용할 Bean객체로 수정
+	@Qualifier("printer")
+	public void setPrinter(MemberPrinter printer) {	//설정 클래스에서 의존 주입해도 @Autowired 있으면 여기서 일치하는 Bean 객체 주입
 		this.printer = printer;
 	}
 }

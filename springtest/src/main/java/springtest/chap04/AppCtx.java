@@ -43,7 +43,7 @@ public class AppCtx {
 	public MemberInfoPrinter infoPrinter() {
 		MemberInfoPrinter infoPrinter = new MemberInfoPrinter();
 		//infoPrinter.setMemberDao(memberDao());
-		//infoPrinter.setPrinter(memberPrinter());
+		infoPrinter.setPrinter(memberPrinter2());		//자동 주입되는 세터 메서드에 명시적으로 의존 주입
 		return infoPrinter;
 	}
 }
