@@ -11,7 +11,7 @@ public class Client implements InitializingBean, DisposableBean{
 	}
 	
 	@Override
-	public void afterPropertiesSet() throws Exception {
+	public void afterPropertiesSet() throws Exception {		//초기화 과정에서 실행
 		// TODO Auto-generated method stub
 		System.out.println("Client.afterPropertiesSet()");
 	}
@@ -21,7 +21,7 @@ public class Client implements InitializingBean, DisposableBean{
 	}
 	
 	@Override
-	public void destroy() throws Exception {
+	public void destroy() throws Exception {		//소멸 과정에서 실행
 		// TODO Auto-generated method stub
 		System.out.println("Client.destroy()");
 	}
