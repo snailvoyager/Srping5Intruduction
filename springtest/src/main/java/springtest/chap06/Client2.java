@@ -7,7 +7,7 @@ public class Client2 {
 		this.host = host;
 	}
 	
-	public void connect() {		//초기화 과정에서 실행될 메서드
+	public void connect() {		//초기화 과정에서 실행될 메서드. 파라미터 존재 X
 		System.out.println("Client2.connect()");
 	}
 	
@@ -15,7 +15,7 @@ public class Client2 {
 		System.out.println("Client2.send()");
 	}
 	
-	public void close() {		//소멸 과정에서 실행될 메서드
+	public void close() {		//소멸 과정에서 실행될 메서드. 파라미터 존재 X
 		System.out.println("Client2.close()");
 	}
 }
