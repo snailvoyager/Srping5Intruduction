@@ -1,0 +1,15 @@
+package springtest.chap07;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+public class MainAspect {
+	public static void main(String[] args) {
+		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppCtx.class);
+		
+		Calculator cal = ctx.getBean("calculator", Calculator.class);		//프록시 객체를 리턴
+		long fiveFact = cal.factorial(5);
+		System.out.println("cal.factorial(5) = " + fiveFact);
+		System.out.println(cal.getClass().getName());
+		ctx.close();
+	}
+}
