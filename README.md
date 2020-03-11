@@ -14,3 +14,5 @@
 * Chapter3 스프링 DI
 * Chapter4 의존 자동 주입
 * Chapter5 컴포넌트 스캔
+* Chapter6 빈 라이프사이클과 범위
+* Chapter7 AOP 프로그래밍
