@@ -19,7 +19,8 @@ public class CacheAspect {
 		
 	}
 	
-	@Around("cacheTarget()")
+	//@Around("cacheTarget()")
+	@Around("ExeTimeAspect.publicTarget()")			//Pointcut 재사용
 	public Object execute(ProceedingJoinPoint joinPoint) throws Throwable{
 		Long num = (Long)joinPoint.getArgs()[0];
 		if(cache.containsKey(num)) {
