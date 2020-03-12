@@ -14,6 +14,14 @@ public class MainAspect {
 		long fiveFact = cal.factorial(5);
 		System.out.println("cal.factorial(5) = " + fiveFact);
 		System.out.println(cal.getClass().getName());
+		
+		cal.factorial(5);
+		cal.factorial(5);
+		cal.factorial(7);		//CacheAspect -> ExeTimeAspect -> RecCalculator
+		cal.factorial(7);		//CacheAspect
+		cal.factorial(100);
+		cal.factorial(100);
+		cal.factorial(100);
 		ctx.close();
 	}
 }

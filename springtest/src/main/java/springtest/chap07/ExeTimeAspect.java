@@ -7,8 +7,10 @@ import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.core.annotation.Order;
 
 @Aspect
+@Order(2)
 public class ExeTimeAspect {
 	@Pointcut("execution(public * springtest.chap07..factorial*(..))")		//공통기능을 적용할 대상. 하위 패키지에 속한 Bean객체의 public factorial메서드
 	private void publicTarget() {

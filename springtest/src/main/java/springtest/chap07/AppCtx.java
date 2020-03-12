@@ -8,6 +8,11 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @EnableAspectJAutoProxy(proxyTargetClass = true)		//@Aspect 붙은 Bean객체를 찾아서 Pointcut, Around 설정을 사용
 public class AppCtx {
 	@Bean
+	public CacheAspect cacheAspect() {
+		return new CacheAspect();
+	}
+	
+	@Bean
 	public ExeTimeAspect exeTimeAspect() {
 		return new ExeTimeAspect();
 	}
