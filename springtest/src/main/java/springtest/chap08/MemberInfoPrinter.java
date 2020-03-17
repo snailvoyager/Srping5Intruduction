@@ -1,4 +1,4 @@
-package sprinttest.chap08;
+package springtest.chap08;
 
 import org.springframework.beans.factory.annotation.Autowired;
 

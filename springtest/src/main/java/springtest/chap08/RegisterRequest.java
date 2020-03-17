@@ -1,4 +1,4 @@
-package sprinttest.chap08;
+package springtest.chap08;
 
 public class RegisterRequest {
 	private String email;
