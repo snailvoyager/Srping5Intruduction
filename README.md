@@ -8,6 +8,7 @@
 * UTF-8
 * Maven 3.7.0
 * Tomcat 8
+* MySQL 8.0.3
 
 ## Contents
 * Chapter2 스프링 시작하기
