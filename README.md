@@ -17,3 +17,5 @@
 * Chapter5 컴포넌트 스캔
 * Chapter6 빈 라이프사이클과 범위
 * Chapter7 AOP 프로그래밍
+* Chapter8 DB 연동
+* Chapter9 스프링 MVC 시작하기
