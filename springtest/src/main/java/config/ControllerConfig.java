@@ -3,12 +3,12 @@ package config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import springtest.chap09.HelloController;
+import springtest.chap11.RegistController;
 
 @Configuration
 public class ControllerConfig {
 	@Bean
-	public HelloController helloController() {
-		return new HelloController();
+	public RegistController registerController() {
+		return new RegistController();
 	}
 }
