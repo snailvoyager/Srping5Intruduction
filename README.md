@@ -3,11 +3,12 @@
 > 초보 웹 개발자를 위한 스프링5 프로그래밍 입문 By 최범균
 
 ## Project Spec
-* Spring 5.0.2
+* Spring Framework 5.1.0
+* Spring WEB MVC 5.1.0
 * JDK 1.8
 * UTF-8
 * Maven 3.7.0
-* Tomcat 8
+* Tomcat 8.5
 * MySQL 8.0.3
 
 ## Contents
