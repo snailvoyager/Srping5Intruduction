@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 import springtest.chap11.MemberRegisterService;
 import springtest.chap11.RegistController;
+import springtest.chap11.survey.SurveyController;
 
 @Configuration
 public class ControllerConfig {
@@ -18,5 +19,10 @@ public class ControllerConfig {
 		RegistController controller =  new RegistController();
 		controller.setMemberRegisterService(memberRegSvc);		//setter 의존주입
 		return controller;
+	}
+	
+	@Bean
+	public SurveyController surveyController() {
+		return new SurveyController();
 	}
 }
