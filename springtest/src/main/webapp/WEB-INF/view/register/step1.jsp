@@ -1,19 +1,20 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
+<title><spring:message code="member.register"/></title>
 </head>
 <body>
-	<h2>¾à°ü</h2>
-	<p>¾à°ü ³»¿ë</p>
+	<h2><spring:message code="term"/></h2>
+	<p>ì•½ê´€ ë‚´ìš©</p>
 	<form action="step2" method="post">
 	<label>
-		<input type="checkbox" name="agree" value="true">¾à°ü µ¿ÀÇ
+		<input type="checkbox" name="agree" value="true">
+		<spring:message code="term.agree"/>
 	</label>
-	<input type="submit" value="´ÙÀ½ ´Ü°è"/>
+	<input type="submit" value="<spring:message code="next.btn"/>"/>
 	</form>
 </body>
 </html>

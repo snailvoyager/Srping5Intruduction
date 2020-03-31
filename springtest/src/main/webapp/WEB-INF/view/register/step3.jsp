@@ -1,14 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>Join Complete</title>
+<title><spring:message code="member.register"/></title>
 </head>
 <body>
-	<p>${formData.name}님 회원 가입을 완료했습니다.</p>
-	<p><a href="<c:url value='/main'/>">[첫 화면 이동]</a></p>
+	<p><spring:message code="register.done" arguments="${formData.name }"/></p>
+	<p><a href="<c:url value='/main'/>">[<spring:message code="go.main"/>]</a></p>
 </body>
 </html>

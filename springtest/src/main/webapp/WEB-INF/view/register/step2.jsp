@@ -1,36 +1,36 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>회원가입</title>
+<title><spring:message code="member.register"/></title>
 </head>
 <body>
-	<h2>회원 정보 입력</h2>
+	<h2><spring:message code="member.info"/></h2>
 	<form:form action="step3" modelAttribute="formData">
 	<p>
-		<label>email<br>
+		<label><spring:message code="email"/><br>
 		<form:input path="email"/>
 		</label>
 	</p>
 	<p>
-		<label>Name<br>
+		<label><spring:message code="name"/><br>
 		<form:input path="name"/>
 		</label>
 	</p>
 	<p>
-		<label>Password<br>
+		<label><spring:message code="password"/><br>
 		<form:password path="password"/>
 		</label>
 	</p>
 	<p>
-		<label>Confirm Password<br>
+		<label><spring:message code="password.confirm"/><br>
 		<form:password path="confirmPassword"/>
 		</label>
 	</p>
-	<input type="submit" value="Complete">
+	<input type="submit" value="<spring:message code="register.btn"/>">
 	</form:form>
 </body>
 </html>
