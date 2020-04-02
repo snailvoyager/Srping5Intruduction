@@ -6,7 +6,7 @@
 			<pattern>%d %5p %c{2} - %m%n</pattern>
 		</encoder>
 	</appender>
-	<root level="INFO">
+	<root level="DEBUG">
 		<appender-ref ref="stdout"/>
 	</root>
 	

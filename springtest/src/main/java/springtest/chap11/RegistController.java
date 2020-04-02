@@ -2,6 +2,7 @@ package springtest.chap11;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,12 +39,17 @@ public class RegistController {
 	}
 	
 	@PostMapping("/register/step3")
-	public String handleStep3(@ModelAttribute("formData") RegisterRequest regReq) {		//커맨드 객체에 요청 파라미터 값을 전달
+	public String handleStep3(@ModelAttribute("formData") RegisterRequest regReq, Errors errors) {		//커맨드 객체에 요청 파라미터 값을 전달
+		new RegisterRequestValidator().validate(regReq, errors);	//커맨드 객체 검증
+		if(errors.hasErrors())
+			return "register/step2";
+		
 		try {
 			memberRegisterService.regist(regReq);
 			return "register/step3";				//커맨드 객체를 registerRequest로 뷰에 전달
 		} catch(DuplicateMemberException ex) {
-			System.out.println(ex.getLocalizedMessage());
+			//System.out.println(ex.getLocalizedMessage());
+			errors.rejectValue("email", "duplicate");
 			return "register/step2";
 		}
 	}
