@@ -1,5 +1,7 @@
 package springtest.chap11;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -39,8 +41,8 @@ public class RegistController {
 	}
 	
 	@PostMapping("/register/step3")
-	public String handleStep3(@ModelAttribute("formData") RegisterRequest regReq, Errors errors) {		//커맨드 객체에 요청 파라미터 값을 전달
-		new RegisterRequestValidator().validate(regReq, errors);	//커맨드 객체 검증
+	public String handleStep3(@ModelAttribute("formData") @Valid RegisterRequest regReq, Errors errors) {		//커맨드 객체에 요청 파라미터 값을 전달
+		//new RegisterRequestValidator().validate(regReq, errors);	//커맨드 객체 검증. @Valid 붙이면 검증 코드를 작성X
 		if(errors.hasErrors())
 			return "register/step2";
 		
