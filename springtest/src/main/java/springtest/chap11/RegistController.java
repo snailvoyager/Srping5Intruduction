@@ -55,4 +55,9 @@ public class RegistController {
 			return "register/step2";
 		}
 	}
+	
+//	@InitBinder		//컨트롤러 범위 적용 Validator 설정
+//	protected void initBinder(WebDataBinder binder) {
+//		binder.setValidator(new RegisterRequestValidator());	//글로벌 범위 Validator 대신에 컨트롤러 범위 Validator 사용
+//	}
 }
