@@ -7,12 +7,17 @@ import org.springframework.context.annotation.Configuration;
 import springtest.chap11.MemberRegisterService;
 import springtest.chap11.RegistController;
 import springtest.chap11.survey.SurveyController;
+import springtest.chap13.AuthService;
+import springtest.chap13.LoginController;
+import springtest.chap13.LogoutController;
 
 @Configuration
 public class ControllerConfig {
 	
 	@Autowired
 	private MemberRegisterService memberRegSvc;
+	@Autowired
+	private AuthService authService;
 	
 	@Bean
 	public RegistController registerController() {
@@ -24,5 +29,17 @@ public class ControllerConfig {
 	@Bean
 	public SurveyController surveyController() {
 		return new SurveyController();
+	}
+	
+	@Bean
+	public LoginController loginController() {
+		LoginController controller = new LoginController();
+		controller.setAuthService(authService);
+		return controller;
+	}
+	
+	@Bean
+	public LogoutController logoutController() {
+		return new LogoutController();
 	}
 }

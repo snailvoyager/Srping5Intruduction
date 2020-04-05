@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import springtest.chap11.ChangePasswordService;
 import springtest.chap11.MemberDao;
 import springtest.chap11.MemberRegisterService;
+import springtest.chap13.AuthService;
 
 @Configuration
 @EnableTransactionManagement
@@ -49,5 +50,12 @@ public class MemberConfig {
 		ChangePasswordService pwdSvc = new ChangePasswordService();
 		pwdSvc.setMemberDao(memberDao());
 		return pwdSvc;
+	}
+	
+	@Bean
+	public AuthService authService() {
+		AuthService authService = new AuthService();
+		authService.setMemberDao(memberDao());
+		return authService;
 	}
 }
