@@ -2,6 +2,7 @@ package config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 import springtest.chap11.ChangePasswordService;
@@ -14,6 +15,7 @@ import springtest.chap13.LoginController;
 import springtest.chap13.LogoutController;
 
 @Configuration
+@ComponentScan(basePackages= {"springtest.chap13"})
 public class ControllerConfig {
 	
 	@Autowired
@@ -47,10 +49,10 @@ public class ControllerConfig {
 		return new LogoutController();
 	}
 	
-	@Bean
-	public ChangePwdController changePwdController() {
-		ChangePwdController controller = new ChangePwdController();
-		controller.setChangePasswordService(changePasswordService);
-		return controller;
-	}
+//	@Bean
+//	public ChangePwdController changePwdController() {
+//		ChangePwdController controller = new ChangePwdController();
+//		controller.setChangePasswordService(changePasswordService);
+//		return controller;
+//	}
 }

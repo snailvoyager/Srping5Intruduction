@@ -2,6 +2,7 @@ package springtest.chap13;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,11 +16,12 @@ import springtest.chap11.WrongIdPasswordException;
 @Controller
 @RequestMapping("/edit/changePassword")
 public class ChangePwdController {
-
+	
+	@Autowired
 	private ChangePasswordService changePasswordService;
-	public void setChangePasswordService(ChangePasswordService changePasswordService) {
-		this.changePasswordService = changePasswordService;
-	}
+//	public void setChangePasswordService(ChangePasswordService changePasswordService) {
+//		this.changePasswordService = changePasswordService;
+//	}
 	
 	@GetMapping
 	public String form(@ModelAttribute("command") ChangePwdCommand pwdCmd) {
