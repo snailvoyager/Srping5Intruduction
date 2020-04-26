@@ -6,9 +6,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import interceptor.AuthCheckInterceptor;
 
 @Configuration
 @EnableWebMvc
@@ -33,6 +36,17 @@ public class MvcConfig implements WebMvcConfigurer{
 		ms.setBasenames("message.label");	//src/main/resource/message/label.properties를 읽어온다
 		ms.setDefaultEncoding("UTF-8");
 		return ms;
+	}
+	
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		// TODO Auto-generated method stub
+		registry.addInterceptor(authCheckInterceptor()).addPathPatterns("/edit/**");	//인터셉터 적용할 경로 지정
+	}
+	
+	@Bean
+	public AuthCheckInterceptor authCheckInterceptor() {
+		return new AuthCheckInterceptor();
 	}
 	
 //	@Override
