@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -19,22 +20,25 @@ public class MemberDao {
 	
 	private JdbcTemplate jdbcTemplate;
 	
+	private RowMapper<Member> memRowMapper = new RowMapper<Member>() {		//중복 코드 정리
+		public Member mapRow(ResultSet rs, int rowNum) throws SQLException {
+			Member member = new Member(
+					rs.getString("EMAIL"),
+					rs.getString("PASSWORD"),
+					rs.getString("NAME"),
+					rs.getTimestamp("REGDATE").toLocalDateTime()
+					);
+			member.setId(rs.getLong("ID"));
+			return member;
+		}
+	};
+	
 	public MemberDao(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 	
 	public Member selectByEmail(String email) {
-		List<Member> results = jdbcTemplate.query("select * from MEMBER where EMAIL=?", new RowMapper<Member>() {
-			public Member mapRow(ResultSet rs, int rowNum) throws SQLException{
-				Member member = new Member(
-						rs.getString("EMAIL"),
-						rs.getString("PASSWORD"),
-						rs.getString("NAME"),
-						rs.getTimestamp("REGDATE").toLocalDateTime());
-				member.setId(rs.getLong("ID"));
-				return member;
-			}
-		}, email);	//쿼리 파라미터 인자
+		List<Member> results = jdbcTemplate.query("select * from MEMBER where EMAIL=?", memRowMapper, email);	//쿼리 파라미터 인자
 		return results.isEmpty() ? null : results.get(0);
 	}
 	
@@ -61,17 +65,7 @@ public class MemberDao {
 	}
 	
 	public List<Member> selectAll(){
-		List<Member> results = jdbcTemplate.query("select * from MEMBER", new RowMapper<Member>() {
-			public Member mapRow(ResultSet rs, int rowNum) throws SQLException{
-				Member member = new Member(
-						rs.getString("EMAIL"),
-						rs.getString("PASSWORD"),
-						rs.getString("NAME"),
-						rs.getTimestamp("REGDATE").toLocalDateTime());
-				member.setId(rs.getLong("ID"));
-				return member;
-			}
-		});
+		List<Member> results = jdbcTemplate.query("select * from MEMBER", memRowMapper);
 		return results;
 	}
 	
@@ -85,4 +79,14 @@ public class MemberDao {
 		return count;
 	}
 	
+	public List<Member> selectByRegdate(LocalDateTime from, LocalDateTime to){
+		List<Member> results = jdbcTemplate.query("select * from MEMBER where REGDATE between ? and ? order by REGDATE desc"
+				, memRowMapper, from, to);
+		return results;
+	}
+	
+	public Member selectById(Long memId) {
+		List<Member> results = jdbcTemplate.query("select * from MEMBER where ID = ?", memRowMapper, memId);
+		return results.isEmpty() ? null : results.get(0);
+	}
 }
