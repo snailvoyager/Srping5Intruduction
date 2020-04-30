@@ -2,11 +2,16 @@ package springtest.chap11;
 
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class Member {
 	private Long id;
 	private String email;
+	@JsonIgnore				//JSON 응답에서 제외
 	private String password;
 	private String name;
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	private LocalDateTime registerDateTime;
 	
 	public Member(String email, String password, String name, LocalDateTime regDateTime) {

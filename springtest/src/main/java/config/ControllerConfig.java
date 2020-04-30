@@ -15,7 +15,7 @@ import springtest.chap13.LoginController;
 import springtest.chap13.LogoutController;
 
 @Configuration
-@ComponentScan(basePackages= {"springtest.chap13", "springtest.chap14"})
+@ComponentScan(basePackages= {"springtest.chap13", "springtest.chap14", "springtest.chap16"})
 public class ControllerConfig {
 	
 	@Autowired
